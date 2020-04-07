@@ -16,3 +16,11 @@ body {
 button {
   cursor: pointer;
 }
+
+.w100 {
+  width: 100%;
+}
+
+.m-w400 {
+  max-width: 400px;
+}
