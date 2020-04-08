@@ -1,9 +1,9 @@
 import React from "react";
-import AuthPage from "./Pages/AuthPage";
 import "./global.css";
+import Routes from "./routes";
 
 function App() {
-  return <AuthPage />;
+  return <Routes />;
 }
 
 export default App;

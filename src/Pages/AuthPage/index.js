@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Card, Form, Input, Button, Modal } from "antd";
 import "antd/dist/antd.css";
 
@@ -6,6 +7,8 @@ import { Container } from "./styles";
 
 export default function AuthPage() {
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
   function error() {
     Modal.error({
       title: "Ops, algo deu errado",
@@ -20,8 +23,10 @@ export default function AuthPage() {
     console.log(values);
     setLoading(true);
     setTimeout(() => {
-      error();
+      // error();
       setLoading(false);
+      localStorage.setItem('@token', '123456789')
+      history.push("/home");
     }, 2000);
   }
 
