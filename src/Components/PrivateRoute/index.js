@@ -13,6 +13,7 @@ import "./styles.css";
 export default function PrivateRoute({ children, ...rest }) {
   const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
   const [openKeys, setOpenKeys] = useState([]);
+  const [collapsed, colaps] = useState(false);
 
   const { Header, Sider, Content } = Layout;
   const { Title } = Typography;
@@ -29,9 +30,20 @@ export default function PrivateRoute({ children, ...rest }) {
 
   return (
     <Layout>
-      <Sider className="side">
-        <Menu className="menu" mode="inline" openKeys={openKeys} onOpenChange={onOpenChange}>
-          <Header>TITLE</Header>
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={() => colaps(!collapsed)}
+        className="side"
+      >
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          className="menu"
+          mode="inline"
+          openKeys={openKeys}
+          onOpenChange={onOpenChange}
+        >
           <SubMenu
             key="sub1"
             title={
@@ -80,7 +92,7 @@ export default function PrivateRoute({ children, ...rest }) {
       </Sider>
       <Layout>
         <Header className="header">
-          <Title level={3} style={{ color: "#424242" }}>
+          <Title level={3} style={{ color: "#ff6f00" }}>
             ANT Design
           </Title>
           <Avatar size={36} style={{ backgroundColor: "#ff6f00" }}>
