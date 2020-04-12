@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { Layout, Typography, Avatar, Menu } from "antd";
+import { Layout, Typography, Avatar, Menu, Popover, Button } from "antd";
 import {
   MailOutlined,
   SettingOutlined,
@@ -14,6 +14,7 @@ export default function PrivateRoute({ children, ...rest }) {
   const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
   const [openKeys, setOpenKeys] = useState([]);
   const [collapsed, colaps] = useState(false);
+  const [popVisible, changePopVisible] = useState(false);
 
   const { Header, Sider, Content } = Layout;
   const { Title } = Typography;
@@ -26,6 +27,12 @@ export default function PrivateRoute({ children, ...rest }) {
     } else {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
+  }
+
+  function logout() {
+    console.log("LOGOUT");
+    changePopVisible(false);
+    localStorage.clear();
   }
 
   return (
@@ -95,9 +102,24 @@ export default function PrivateRoute({ children, ...rest }) {
           <Title level={3} style={{ color: "#ff6f00" }}>
             ANT Design
           </Title>
-          <Avatar size={36} style={{ backgroundColor: "#ff6f00" }}>
-            L
-          </Avatar>
+          <Popover
+            content={
+              <ul className="user-actions-list">
+                <li onClick={() => changePopVisible(!popVisible)}>
+                  Meu Perfil
+                </li>
+                <li onClick={() => logout()}>Sair</li>
+              </ul>
+            }
+            title="Ações de usuário"
+            trigger="click"
+            visible={popVisible}
+            onVisibleChange={() => changePopVisible(!popVisible)}
+          >
+            <Button shape="circle" className="avatar-button">
+              L
+            </Button>
+          </Popover>
         </Header>
         <Content>
           <div className="site-layout-background">

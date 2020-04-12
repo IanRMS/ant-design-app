@@ -27,3 +27,22 @@
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
+
+.avatar-button {
+  border: none;
+  background-color: #ff6f00;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-actions-list {
+  text-decoration: none;
+  list-style: none;
+}
+
+.user-actions-list li {
+  cursor: pointer;
+}
