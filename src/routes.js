@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import AuthPage from "./Pages/AuthPage";
 import PrivateRoute from "./Components/PrivateRoute";
+
 import Home from "./Pages/Home";
+import AuthPage from "./Pages/AuthPage";
 
 function Routes() {
   return (

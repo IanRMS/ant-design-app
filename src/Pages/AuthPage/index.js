@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Card, Form, Input, Button, Modal } from "antd";
-import "antd/dist/antd.css";
 
 import { Container } from "./styles";
 
