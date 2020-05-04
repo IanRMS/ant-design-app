@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { Layout, Typography, Avatar, Menu, Popover, Button } from "antd";
+import { Layout, Typography, Menu, Popover, Button } from "antd";
 import {
   MailOutlined,
   SettingOutlined,
@@ -30,7 +30,6 @@ export default function PrivateRoute({ children, ...rest }) {
   }
 
   function logout() {
-    console.log("LOGOUT");
     changePopVisible(false);
     localStorage.clear();
   }
